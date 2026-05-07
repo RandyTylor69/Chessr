@@ -1,0 +1,9 @@
+.layout-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+
+  /* flexbox */
+  display: flex;
+  justify-content: space-between;
+}
