@@ -22,3 +22,4 @@ def getOpeningFromPGN(pgn):
     else:
         return None
 
+

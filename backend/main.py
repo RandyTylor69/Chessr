@@ -10,8 +10,9 @@ API_TOKEN = os.getenv("API_TOKEN")
 username = os.getenv("username")
 
 def main():
-    deleteAllGamesFromDB()
-    addAllGamesToDB(username, API_TOKEN)
+    #deleteAllGamesFromDB()
+    #addAllGamesToDB(username, API_TOKEN)
+    condenseGamesToDB()
 
 if __name__ == "__main__":
     main()
