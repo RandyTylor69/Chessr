@@ -148,3 +148,17 @@ def movesToPgn(moves):
 
     return pgn
 
+def getDataFromTable(table):
+    db = sqlite3.connect('playerstats.db', isolation_level=None)
+    cursorObj = db.execute(f"SELECT * FROM {table}")
+
+    # get table headers into a list
+    headers = list(map(lambda header : header[0], cursorObj.description))
+    # enumerated headers:
+    # [(0, 'opening'), (1, 'color'), (2, 'games_count'), (3, 'winrate')]
+
+    # convert to JSON
+    # Example Row: ('Vienna Game: Max Lange Defense', 'white', 10, 0.5556)
+    JSON_result = [{header : row[i] for i, header in enumerate(headers)} for row in cursorObj]
+    return JSON_result
+    
