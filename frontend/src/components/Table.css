@@ -1,0 +1,21 @@
+.table-header {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+table,
+td,
+th {
+  border: var(--black-secondary) 2px solid;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 80rem;
+}
+
+td,
+th {
+  padding: 6px;
+}

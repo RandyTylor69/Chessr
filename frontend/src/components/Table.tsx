@@ -1,6 +1,5 @@
 import "./Table.css";
 import { useQuery } from "@tanstack/react-query";
-import type { OpeningWinrateType } from "../Types.ts";
 export default function Table() {
   const fetchData = async (url: string) => {
     try {
@@ -36,10 +35,30 @@ export default function Table() {
   }
 
   return (
-    <div>
-      {winrates?.map((winrate: OpeningWinrateType) => (
-        <div key={winrate.opening}>{winrate.games_count}</div>
-      ))}
-    </div>
+    <table>
+      <thead>
+        {headers.map((header) => (
+          <th key={header.id}>
+            <h1 className="table-header">{header.label}</h1>
+          </th>
+        ))}
+      </thead>
+      <tbody>
+        {winrates.map((row: any, index: number) => (
+          <tr key={index}>
+            {headers.map((header) => (
+              <td key={header.id}>{row[header.key]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
+
+const headers = [
+  { id: 1, label: "Opening", key: "opening" },
+  { id: 2, label: "Color", key: "color" },
+  { id: 3, label: "Games", key: "games_count" },
+  { id: 4, label: "Winrate", key: "winrate" },
+];
